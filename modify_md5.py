@@ -2,6 +2,10 @@ import hashlib
 import os
 import sys
 
+#定义个过滤器数组，过滤指定的后缀名
+filter = ['mp3','png','jpg','mp4']
+    
+
 def get_md5(file_path):
     """获取文件md5值"""
     with open(file_path, 'rb') as f:
@@ -11,6 +15,9 @@ def get_md5(file_path):
     return hash
 
 def modify_md5(file_path):
+    # 过滤指定filter后缀名的文件
+    if file_path.split('.')[-1] not in filter:
+        return
     """修改文件md5值"""
     original_md5 = get_md5(file_path)
     print(f'原文件{file_path}的md5值为{original_md5}')
@@ -32,11 +39,15 @@ def modify_md5(file_path):
 
 def modify_all_md5(dir_path):
     """遍历目录修改所有文件md5值"""
-    for file_name in os.listdir(dir_path):
-        file_path = os.path.join(dir_path, file_name)
-        if os.path.isfile(file_path):
+    for root, dirs, files in os.walk(dir_path):
+        for file in files:
+            file_path = os.path.join(root, file)
             modify_md5(file_path)
             
 if __name__ == '__main__':
     arguments = sys.argv
-    modify_md5(arguments[1])
+    path = arguments[1]
+    if os.path.isfile(path):
+        modify_md5(path)
+    else:
+        modify_all_md5(path)
