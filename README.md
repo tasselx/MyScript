@@ -14,3 +14,8 @@
 Mac端保存路径在 `~/Library/FinalShell/conn` 目录下的json文件中的password字段
 可以使用decode_finalshell.java脚本解密,也可以在线运行
 ```
+
+### 生成app图标
+```
+python3 app_icon.py $path
+```
