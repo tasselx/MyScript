@@ -16,7 +16,7 @@ def get_md5(file_path):
 def modify_md5(file_path):
     """修改文件的MD5哈希值"""
     # 排除指定的文件后缀名
-    if file_path.split('.')[-1] in exclude_extensions:
+    if file_path.split('.')[-1] not in exclude_extensions:
         return
     
     original_md5 = get_md5(file_path)
