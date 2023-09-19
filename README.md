@@ -1,7 +1,7 @@
 # MyScript
 一些自用脚本
 
-### 修改文件md5,用户上传文件,会过滤全部目录下面的指定后缀名文件
+### 修改文件md5,用户洗码
 
 `python3 modify_md5.py $path`
 ### 生成重复图片,且每个md5都不一样
@@ -18,4 +18,11 @@ Mac端保存路径在 `~/Library/FinalShell/conn` 目录下的json文件中的pa
 ### 生成app图标
 ```
 python3 app_icon.py $path
+```
+
+### 扫描是否包含某些字符
+
+
+```
+sh check.sh $path
 ```
