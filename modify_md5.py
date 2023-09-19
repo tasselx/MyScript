@@ -3,7 +3,7 @@ import os
 import sys
 
 # 定义一个集合，用于过滤指定的文件后缀名
-exclude_extensions = {'mp3', 'png', 'jpg', 'mp4'}
+exclude_extensions = ['mp3', 'png', 'jpg', 'mp4','flac']
 
 def get_md5(file_path):
     """获取文件的MD5哈希值"""
@@ -15,8 +15,12 @@ def get_md5(file_path):
 
 def modify_md5(file_path):
     """修改文件的MD5哈希值"""
-    # 排除指定的文件后缀名
-    if file_path.split('.')[-1] not in exclude_extensions:
+    # 排除指定的文件扩展名
+    
+    ext_name = file_path.split('.')[-1]
+
+    if ext_name not in exclude_extensions:
+        print('不是指定的文件类型:'+ext_name)
         return
     
     original_md5 = get_md5(file_path)
