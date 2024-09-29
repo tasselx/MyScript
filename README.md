@@ -26,3 +26,9 @@ python3 app_icon.py $path
 ```
 sh check.sh $path
 ```
+
+### 获取Mac地址，以及mock地址
+
+```
+python3 mac_md5.py
+```
